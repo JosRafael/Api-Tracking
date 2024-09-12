@@ -8,7 +8,6 @@ const port = 3000;
 app.use(bodyParser.json());
 
 app.post('/process-payload', pixelController.processPayload);
-// app.post('/process-payload', pixelController.processPayload);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
