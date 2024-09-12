@@ -1,15 +1,12 @@
 const crypto = require('crypto');
 const axios = require('axios');
 
-// Função para gerar hash SHA256
 function hashSHA256(value) {
   return crypto.createHash('sha256').update(value).digest('hex');
 }
 
-// Função para processar o payload recebido e enviar para a API do Facebook
 async function processPayload(req, res) {
   try {
-    // Exibir os dados recebidos
     console.log('Dados recebidos:', req.body);
 
     const { data, partner_agent } = req.body;
