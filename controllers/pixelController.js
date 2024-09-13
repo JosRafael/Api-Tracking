@@ -32,9 +32,8 @@ async function processPayload(req, res) {
       }
     });
 
-    const facebookApiUrl = 'https://graph.facebook.com/v16.0/405083305939509/events?access_token=EAB1u1MXHeo8BO7UfgrdKtQRjAXP0ZC7kyrAbA4CSJzj2xmoEtSVFZCPxuDYU0WOnUbwnHvVjZALHzE8iZACEWETeagiZA1qhv4ZAwIgsNZAGFUZBRREPmRcpZCBYKPndlUGHqtaHOgZBFm4SSSjpyCV15n2xONZCHINeMbo36yCpIxfxwNNhN33aqoG9ki5ScDHNCTLXQZDZD';
+    const facebookApiUrl = 'https://graph.facebook.com/v16.0/987830626061730/events?access_token=EAAR26OSzZCGUBOxasbZBZCK84UumcmcmhRZAKRKJs178FsmZB6su3cWbZC5vTw819ukUxW9Em0kwJa2txxvH2yT2ucmB12AWe0K8DrB4rf5OWdl3Sm8VdaLu0caTFRgICxxBbP194iZCXKU4H76EpXZAU9G5IPuH7crTOfgPY5c9LbhK9ETtnBlmux50d0M0aQkZBZBgZDZD';
 
-    // Exibir dados que serão enviados para o Facebook
     console.log('Enviando dados para a API do Facebook:', {
       data,
       partner_agent
@@ -49,7 +48,6 @@ async function processPayload(req, res) {
       }
     });
 
-    // Exibir a resposta da API do Facebook
     console.log('Resposta da API do Facebook:', responseToFacebook.data);
 
     res.json({
@@ -57,7 +55,6 @@ async function processPayload(req, res) {
       facebook_response: responseToFacebook.data
     });
   } catch (error) {
-    // Exibir o erro ocorrido
     console.error('Erro ao processar payload:', error);
 
     res.status(error.response ? error.response.status : 500).json({

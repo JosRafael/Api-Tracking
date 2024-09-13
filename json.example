@@ -1,0 +1,25 @@
+https://api-tracking-dvzo.onrender.com/process-payload
+
+{
+    "data": [
+        {
+           "event_name": "FELIPE É O HOMI",
+					  "event_time": "2024-09-12T12:34:56Z",
+            "user_data": {
+                "em": "rafaelmatiashue@gmail.com",
+                "ph": "87988290714"
+            }
+        }
+    ],
+    "partner_agent": "manychat"
+}
+
+example resposta: 
+{
+	"status": "Payload sent successfully",
+	"facebook_response": {
+		"events_received": 1,
+		"messages": [],
+		"fbtrace_id": "AumIqHxqre9Ju5vKYqenTbf"
+	}
+}
