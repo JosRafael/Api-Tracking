@@ -12,12 +12,14 @@ async function processPayload(req, res) {
     const { data, partner_agent } = req.body;
 
     if (!data || !Array.isArray(data)) {
+      console.log('Erro: formato de payload inválido');
       return res.status(400).json({ error: 'Invalid payload format' });
     }
 
-    data.forEach(event => {
+    const processedData = data.map(event => {
       if (!event.event_time) {
-        return res.status(400).json({ error: 'event_time is required' });
+        console.log('Erro: falta event_time');
+        throw new Error('event_time is required');
       }
 
       if (event.user_data) {
@@ -30,6 +32,8 @@ async function processPayload(req, res) {
 
         delete event.user_data.page_scoped_user_id;
       }
+
+      return event;
     });
 
     const facebookApiUrl = 'https://graph.facebook.com/v16.0/987830626061730/events?access_token=EAAR26OSzZCGUBOxasbZBZCK84UumcmcmhRZAKRKJs178FsmZB6su3cWbZC5vTw819ukUxW9Em0kwJa2txxvH2yT2ucmB12AWe0K8DrB4rf5OWdl3Sm8VdaLu0caTFRgICxxBbP194iZCXKU4H76EpXZAU9G5IPuH7crTOfgPY5c9LbhK9ETtnBlmux50d0M0aQkZBZBgZDZD';
